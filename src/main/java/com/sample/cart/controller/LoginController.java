@@ -26,7 +26,7 @@ public class LoginController {
 	@Autowired
 	private LoginDelegate loginDelegate;
 
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView displayLogin(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView model = new ModelAndView("login");
 		LoginBean loginBean = new LoginBean();
