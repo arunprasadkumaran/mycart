@@ -57,6 +57,11 @@
 			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.1.0</version>
@@ -69,6 +74,13 @@
 			<artifactId>derby</artifactId>
 			<version>${derby.version}</version>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.derby/derbyclient -->
+		<dependency>
+			<groupId>org.apache.derby</groupId>
+			<artifactId>derbyclient</artifactId>
+			<version>${derby.version}</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -78,7 +90,7 @@
 				<version>3.5.1</version>
 				<configuration>
 					<fork>true</fork>
-					<executable>C:\Program Files\Java\jdk1.8.0_91\bin\javac.exe</executable>
+					<executable>C:\Program Files\Java\jdk1.8.0_102\bin\javac.exe</executable>
 				</configuration>
 			</plugin>
 		</plugins>

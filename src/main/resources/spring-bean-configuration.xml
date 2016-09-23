@@ -7,24 +7,28 @@
    http://www.springframework.org/schema/context
    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-	<bean id="loginDelegate" class="com.sample.cart.delegate.LoginDelegate">
+	<!-- bean id="loginDelegate" class="com.sample.cart.delegate.LoginDelegate">
 		<property name="userService" ref="userService"></property>
 	</bean>
 
 	<bean id="userService" class="com.sample.cart.service.impl.UserServiceImpl">
 		<property name="userDao" ref="userDao"></property>
 	</bean>
+	
+	<bean id="userDao" class="com.sample.cart.dao.impl.UserDaoImpl">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean -->
+	
+	<context:component-scan base-package="com.sample.cart.dao.impl" />
+	<context:component-scan base-package="com.sample.cart.service.impl" />
+	<context:component-scan base-package="com.sample.cart.controller" />
 
-	<bean name="userDao" class="com.sample.cart.dao.impl.UserDaoImpl"/>
-		<!-- property name="dataSource" ref="dataSource"></property>
-	</bean-->
-
-	<!--bean id="dataSource"
+	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/jcg" />
-		<property name="username" value="root" />
-		<property name="password" value="toor" />
-	</bean-->
+		<property name="driverClassName" value="org.apache.derby.jdbc.ClientDriver" />
+		<property name="url" value="jdbc:derby://localhost:1527/D:\\Database\\Derby\\cart;" />
+		<!-- property name="username" value="" />
+		<property name="password" value="" /-->
+	</bean>
 
 </beans>

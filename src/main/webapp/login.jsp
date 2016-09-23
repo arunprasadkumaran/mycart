@@ -25,7 +25,7 @@
 			<div class="form">
 				<form:form id="loginForm" name="loginForm" class="login-form"
 					method="post" action="login" modelAttribute="loginBean">
-	
+					<p class="message">	${message} </p>
 					<form:input id="userName" name="userName" path="userName" />
 					<form:password id="password" name="password" path="password" />
 					<button type="submit">login</button>
