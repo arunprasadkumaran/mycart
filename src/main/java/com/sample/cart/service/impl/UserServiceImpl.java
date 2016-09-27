@@ -31,7 +31,8 @@ public class UserServiceImpl implements UserService{
 	}
 
 	public boolean isValidUser(String username, String password) throws SQLException {
-		return userDao.isValidUser(username, password);
+		boolean isValidUser = userDao.isValidUser(username, password);
+		return isValidUser;
 	}
 
 
