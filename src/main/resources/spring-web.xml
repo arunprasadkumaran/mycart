@@ -17,6 +17,10 @@
 			<value>.jsp</value>
 		</property>
 	</bean>
+	
+	<!-- mvc:interceptors>
+      <bean class="com.sample.cart.interceptor.AuthenticationInterceptors" />
+	</mvc:interceptors-->
 
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 	<mvc:annotation-driven />

@@ -14,11 +14,21 @@
 <body>
 
 	<div class="landing-page">
-		<center>Welcome ${UserName}</center>
+		<center>
+			Welcome
+			<c:choose>
+				<c:when test="${UserName !=null}">
+  					 ${UserName}  |  <a href="logout">Log out</a>
+				</c:when>
+				<c:when test="${UserName ==null}">
+ 					 Guest  |  <a href="login">Login</a>
+				</c:when>
+			</c:choose>
+		</center>
 		<br> <br>
 		<table>
-			<TH>Name</th>
-			<TH>Price</th>
+			<th>Name</th>
+			<th>Price</th>
 			<c:forEach items="${bookList}" var="item">
 				<tr>
 					<td><c:out value="${item.productName}" />

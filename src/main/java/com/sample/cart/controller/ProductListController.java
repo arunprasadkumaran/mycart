@@ -1,16 +1,8 @@
-/**
- * 
- */
 package com.sample.cart.controller;
 
 import java.sql.SQLException;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
 
-/**
- * @author arun.prasad
- *
- */
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -23,15 +15,17 @@ import org.springframework.web.servlet.ModelAndView;
 import com.sample.cart.service.ProductService;
 import com.sample.cart.viewbean.Product;
 
+/**
+ * @author arun.prasad
+ *
+ */
 @Controller("productListController")
 @RequestMapping("/browse")
 public class ProductListController {
 	@Autowired
 	private ProductService productService;
 
-	private final AtomicLong counter = new AtomicLong();
-
-	@RequestMapping( method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView displayLogin(HttpServletRequest request, HttpServletResponse response) {
 		List<Product> bookList = null;
 		try {
@@ -51,6 +45,4 @@ public class ProductListController {
 	public void setProductService(ProductService productService) {
 		this.productService = productService;
 	}
-
-
 }

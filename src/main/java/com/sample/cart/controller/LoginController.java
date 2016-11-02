@@ -25,13 +25,14 @@ import com.sample.cart.service.UserService;
 import com.sample.cart.viewbean.LoginBean;
 
 @Controller("loginController")
+@RequestMapping("/login")
 public class LoginController {
 	@Autowired
 	private UserService userService;
 
 	private final AtomicLong counter = new AtomicLong();
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView displayLogin(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView model = new ModelAndView("login");
 		LoginBean loginBean = new LoginBean();
@@ -39,7 +40,7 @@ public class LoginController {
 		return model;
 	}
 
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView executeLogin(HttpServletRequest request, HttpServletResponse response,
 			@ModelAttribute("loginBean") LoginBean loginBean) {
 		ModelAndView model = null;
@@ -87,6 +88,7 @@ public class LoginController {
 		HttpSession session = request.getSession(false);
 		System.out.println("User=" + session.getAttribute("UserName"));
 		if (session != null) {
+			session.removeAttribute("UserName");
 			session.invalidate();
 		}
 		ModelAndView model = new ModelAndView("login");
